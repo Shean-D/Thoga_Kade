@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="481.0" prefWidth="702.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CustomerFormController">
+   <children>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-5.0" prefHeight="89.0" prefWidth="711.0" style="-fx-background-color: Black;" text="Customer Manage" textFill="#e8e3e3">
+         <font>
+            <Font name="System Bold" size="27.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtId" layoutX="152.0" layoutY="109.0" promptText="ID" />
+      <TextField fx:id="txtName" layoutX="436.0" layoutY="109.0" promptText="Name" />
+      <TextField fx:id="txtAddress" layoutX="152.0" layoutY="164.0" promptText="Address" />
+      <TextField fx:id="txtSalary" layoutX="436.0" layoutY="164.0" promptText="Salary" />
+      <Button layoutX="327.0" layoutY="222.0" mnemonicParsing="false" onAction="#btnAddOnAction" prefHeight="25.0" prefWidth="53.0" text="Add" />
+      <Button layoutX="410.0" layoutY="222.0" mnemonicParsing="false" onAction="#btnSearchOnAction" prefHeight="25.0" prefWidth="53.0" text="Search" />
+      <Button layoutX="574.0" layoutY="222.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="25.0" prefWidth="75.0" text="Update" />
+      <Button layoutX="496.0" layoutY="222.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="25.0" prefWidth="53.0" text="Delete" />
+      <TableView fx:id="tblCustomers" layoutX="27.0" layoutY="271.0" prefHeight="200.0" prefWidth="664.0">
+        <columns>
+          <TableColumn fx:id="colId" prefWidth="119.0" text="ID" />
+          <TableColumn fx:id="colName" minWidth="6.0" prefWidth="196.0" text="Name" />
+            <TableColumn fx:id="colAddress" prefWidth="203.0" text="Address" />
+            <TableColumn fx:id="colSalary" prefWidth="145.0" text="Salary" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
