@@ -1,14 +1,14 @@
 package controller;
 
+import com.google.inject.Inject;
 import dto.Customer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import service.ServiceFactory;
 import service.custom.CustomerService;
-import util.ServiceType;
+
 
 public class CustomerFormController {
 
@@ -39,7 +39,8 @@ public class CustomerFormController {
     @FXML
     private TextField txtSalary;
 
-    CustomerService customerService = ServiceFactory.getInstance().getServiceType(ServiceType.CUSTOMER);
+    @Inject
+    CustomerService customerService;
 
     @FXML
     void btnAddOnAction(ActionEvent event) {
@@ -50,6 +51,11 @@ public class CustomerFormController {
         Double salary = Double.parseDouble(txtSalary.getText());
 
         customerService.addCustomer(new Customer(id, name, address, salary));
+
+        txtId.clear();
+        txtName.clear();
+        txtAddress.clear();
+        txtSalary.clear();
 
     }
 
