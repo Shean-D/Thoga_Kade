@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+
+        <!-- Database Connection Settings -->
+        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/thogakade?createDatabaseIfNotExist=true</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">1234</property>
+
+        <!-- Hibernate Dialect -->
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</property>
+
+<!--        &lt;!&ndash; Connection Pool Settings &ndash;&gt;-->
+<!--        <property name="hibernate.c3p0.min_size">5</property>-->
+<!--        <property name="hibernate.c3p0.max_size">20</property>-->
+<!--        <property name="hibernate.c3p0.timeout">300</property>-->
+<!--        <property name="hibernate.c3p0.max_statements">50</property>-->
+
+        <!-- Hibernate Configuration -->
+        <property name="hibernate.show_sql">true</property>
+<!--        <property name="hibernate.format_sql">true</property>-->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+
+    </session-factory>
+</hibernate-configuration>
