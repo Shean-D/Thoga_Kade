@@ -32,7 +32,13 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public Customer searchCustomer(String id) {
         CustomerEntity customerEntity = customerDao.search(id);
-        return new ModelMapper().map(customerEntity, Customer.class);
+
+        if(customerEntity != null){
+            return new ModelMapper().map(customerEntity, Customer.class);
+        }
+
+        return null;
+
     }
 
     @Override
