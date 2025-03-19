@@ -56,15 +56,27 @@ public class CustomerFormController {
     @FXML
     void btnDeleteOnAction(ActionEvent event) {
 
+        String id = txtId.getText();
+        customerService.deleteCustomer(id);
     }
 
     @FXML
     void btnSearchOnAction(ActionEvent event) {
 
+        String id = txtId.getText();
+        Customer customer = customerService.searchCustomer(id);
+
+        txtName.setText(customer.getName());
+        txtAddress.setText(customer.getAddress());
+        txtSalary.setText(String.valueOf(customer.getSalary()));
     }
 
     @FXML
     void btnUpdateOnAction(ActionEvent event) {
+        String id = txtId.getText();
+        Customer customer = customerService.searchCustomer(id);
+
+        customerService.updateCustomer(id, customer);
 
     }
 

@@ -1,23 +1,23 @@
 package repository.custom.impl;
 
-import dto.Customer;
-import repository.custom.CustomerDao;
+import dto.Item;
+import repository.custom.ItemDao;
 
 import java.util.List;
 
-public class CustomerDaoImpl implements CustomerDao {
+public class ItemDaoImpl implements ItemDao {
     @Override
-    public boolean save(Customer entity) {
+    public boolean save(Item entity) {
         return false;
     }
 
     @Override
-    public boolean update(Customer entity, String s) {
+    public boolean update(Item entity, String s) {
         return false;
     }
 
     @Override
-    public Customer search(String s) {
+    public Item search(String s) {
         return null;
     }
 
@@ -27,7 +27,7 @@ public class CustomerDaoImpl implements CustomerDao {
     }
 
     @Override
-    public List<Customer> getAll() {
+    public List<Item> getAll() {
         return List.of();
     }
 }
