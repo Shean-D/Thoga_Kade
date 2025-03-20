@@ -1,6 +1,7 @@
 package controller;
 
 import com.google.inject.Inject;
+import db.DBConnection;
 import dto.Customer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -8,7 +9,13 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JasperViewer;
 import service.custom.CustomerService;
+
+import java.sql.SQLException;
 
 
 public class CustomerFormController {
@@ -135,4 +142,21 @@ public class CustomerFormController {
         new Alert(type, msg).showAndWait();
     }
 
+
+    public void btnCustomerReportOnAction(ActionEvent actionEvent) {
+
+        try {
+            JasperDesign design = JRXmlLoader.load("src/main/resources/report/customer_daily_report.jrxml");
+            JasperReport jasperReport = JasperCompileManager.compileReport(design);
+
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null, DBConnection.getInstance().getConnection());
+
+            JasperExportManager.exportReportToPdfFile(jasperPrint, "Customer Report.pdf");
+            JasperViewer.viewReport(jasperPrint,false);
+
+
+        } catch (JRException | SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

@@ -8,7 +8,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="481.0" prefWidth="702.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CustomerFormController">
    <children>
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-5.0" prefHeight="89.0" prefWidth="711.0" style="-fx-background-color: Black;" text="Customer Manage" textFill="#e8e3e3">
@@ -32,5 +31,6 @@
             <TableColumn fx:id="colSalary" prefWidth="145.0" text="Salary" />
         </columns>
       </TableView>
+      <Button layoutX="37.0" layoutY="228.0" mnemonicParsing="false" onAction="#btnCustomerReportOnAction" prefHeight="25.0" prefWidth="118.0" text="Customer Report" />
    </children>
 </AnchorPane>
